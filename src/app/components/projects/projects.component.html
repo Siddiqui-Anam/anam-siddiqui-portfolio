@@ -1,1 +1,147 @@
-<p>projects works!</p>
+<section class="projects" id="work">
+
+  <div class="projects-container">
+
+    <!-- HEADER -->
+    <div class="projects-header">
+
+      <div class="section-label">
+        <span>SELECTED WORK</span>
+        <span class="label-line"></span>
+      </div>
+
+      <h2>
+        Things I’ve<br>
+        helped build.
+      </h2>
+
+      <p class="section-description">
+        A collection of enterprise systems and personal projects
+        across banking, fintech and software engineering.
+      </p>
+
+    </div>
+
+
+    <!-- PROJECT GRID -->
+    <div class="projects-grid">
+
+      @for (project of projects; track project.title) {
+
+        <article class="project-card">
+
+          <div class="project-top">
+
+            <span class="project-number">
+              {{ project.number }}
+            </span>
+
+            <span class="project-category">
+              {{ project.category }}
+
+              @if (project.privateProject) {
+                <span>• Private</span>
+              }
+            </span>
+
+          </div>
+
+
+          <div class="project-main">
+
+            <h3>
+              {{ project.title }}
+            </h3>
+
+            <p class="project-subtitle">
+              {{ project.subtitle }}
+            </p>
+
+            <p class="project-description">
+              {{ project.description }}
+            </p>
+
+
+            <ul class="project-highlights">
+
+              @for (
+                highlight of project.highlights;
+                track highlight
+              ) {
+
+                <li>
+                  {{ highlight }}
+                </li>
+
+              }
+
+            </ul>
+
+          </div>
+
+
+          <!-- FOOTER -->
+          <div class="project-footer">
+
+            <div class="project-skills">
+
+              @for (skill of project.skills; track skill) {
+
+                <span class="skill">
+                  {{ skill }}
+                </span>
+
+              }
+
+            </div>
+
+
+            <div class="project-actions">
+
+              @if (project.privateProject) {
+
+                <span class="private-badge">
+                  Private Enterprise Project
+                </span>
+
+              } @else {
+
+                @if (project.liveUrl) {
+                  <a
+                    [href]="project.liveUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link primary"
+                  >
+                    Live Site
+                    <span>↗</span>
+                  </a>
+                }
+
+                @if (project.github) {
+                  <a
+                    [href]="project.github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                  >
+                    GitHub
+                    <span>↗</span>
+                  </a>
+                }
+
+              }
+
+            </div>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>
