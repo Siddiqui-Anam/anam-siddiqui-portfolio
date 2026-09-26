@@ -5,11 +5,12 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ProjectsComponent } from './components/projects/projects.component';
 import { AboutComponent } from './components/about/about.component';
 import { ServicesComponent } from './components/services/services.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, HeroComponent, ExperienceComponent, ProjectsComponent, AboutComponent, ServicesComponent],
+  imports: [NavbarComponent, HeroComponent, ExperienceComponent, ProjectsComponent, AboutComponent, ServicesComponent, ContactComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
