@@ -8,8 +8,8 @@
 ======================================== */
 
 .services {
-  background: #080808;
-  color: #f5f5f5;
+  background: var(--color-background);
+  color: var(--color-text);
 
   padding:
     var(--section-space-top)
@@ -57,7 +57,7 @@
 
   margin-bottom: 22px;
 
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-muted);
 
   font-size: 12px;
   font-weight: 600;
@@ -71,14 +71,19 @@
   height: 1px;
 
   background:
-    rgba(255, 255, 255, 0.28);
+    var(--color-border-strong);
 }
 
 
 .services-header h2 {
   margin: 0;
 
-  color: #f5f5f5;
+  color: var(--color-title);
+
+  text-shadow:
+    0 0 4px var(--color-title-glow-strong),
+    0 0 12px var(--color-title-glow-medium),
+    0 0 28px var(--color-title-glow-soft);
 
   font-size: clamp(55px, 6vw, 84px);
   font-weight: 400;
@@ -94,7 +99,7 @@
 
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--color-text-muted);
 
   font-size: 18px;
 
@@ -129,15 +134,15 @@
   flex-direction: column;
 
   border:
-    1px solid rgba(255, 255, 255, 0.12);
+    1px solid var(--color-border);
 
   border-radius: 14px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.022),
-      rgba(255, 255, 255, 0.006)
+      var(--color-surface-soft),
+      var(--color-surface)
     );
 
   transition:
@@ -151,10 +156,10 @@
   transform: translateY(-4px);
 
   border-color:
-    rgba(255, 255, 255, 0.3);
+    var(--color-border-strong);
 
   background:
-    rgba(255, 255, 255, 0.025);
+    var(--color-surface-soft);
 }
 
 
@@ -170,7 +175,7 @@
 
 
 .service-number {
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-muted);
 
   font-size: 12px;
 
@@ -179,7 +184,7 @@
 
 
 .card-arrow {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-secondary);
 
   font-size: 18px;
 
@@ -207,7 +212,7 @@
   justify-content: center;
 
   border:
-    1px solid rgba(255, 255, 255, 0.35);
+    1px solid var(--color-border-focus);
 
   border-radius: 50%;
 }
@@ -219,7 +224,7 @@
 
   fill: none;
 
-  stroke: rgba(255, 255, 255, 0.9);
+  stroke: var(--color-text-strong);
 
   stroke-width: 1.4;
 
@@ -240,7 +245,7 @@
 .service-content h3 {
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--color-text-strong);
 
   font-size: 19px;
   font-weight: 500;
@@ -254,7 +259,7 @@
 
   margin: 12px 0 0;
 
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-soft);
 
   font-size: 14px;
 
@@ -284,11 +289,11 @@
   justify-content: space-between;
 
   border:
-    1px solid rgba(255, 255, 255, 0.5);
+    1px solid var(--color-border-focus);
 
   border-radius: 100px;
 
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-strong);
 
   font-size: 14px;
 
@@ -297,14 +302,20 @@
   transition:
     background 0.3s ease,
     color 0.3s ease,
+    border-color 0.3s ease,
     transform 0.3s ease;
 }
 
 
 .services-cta a:hover {
-  background: #f5f5f5;
+  background:
+    var(--color-button-primary-bg);
 
-  color: #080808;
+  border-color:
+    var(--color-button-primary-bg);
+
+  color:
+    var(--color-button-primary-text);
 
   transform: translateY(-2px);
 }
@@ -315,11 +326,6 @@
 ======================================== */
 
 @media (max-width: 1050px) {
-
-  .services {
-    padding: 100px 0;
-  }
-
 
   .services-grid {
     grid-template-columns:
@@ -339,11 +345,6 @@
 ======================================== */
 
 @media (max-width: 750px) {
-
-  .services {
-    padding: 85px 0;
-  }
-
 
   .services-header {
     grid-template-columns: 1fr;

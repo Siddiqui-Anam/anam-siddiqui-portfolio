@@ -8,8 +8,9 @@
 ======================================== */
 
 .about {
-  background: #080808;
-  color: #f5f5f5;
+  background: var(--color-background);
+
+  color: var(--color-text);
 
   padding:
     var(--section-space-top)
@@ -52,7 +53,7 @@
 
   margin-bottom: 26px;
 
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-muted);
 
   font-size: 12px;
   font-weight: 600;
@@ -65,8 +66,7 @@
   width: 54px;
   height: 1px;
 
-  background:
-    rgba(255, 255, 255, 0.28);
+  background: var(--color-border-strong);
 }
 
 
@@ -80,7 +80,12 @@
   display: flex;
   flex-direction: column;
 
-  color: #f5f5f5;
+  color: var(--color-title);
+
+  text-shadow:
+    0 0 4px var(--color-title-glow-strong),
+    0 0 12px var(--color-title-glow-medium),
+    0 0 28px var(--color-title-glow-soft);
 
   font-size: clamp(58px, 5vw, 82px);
   font-weight: 400;
@@ -97,7 +102,8 @@
 
 
 .about-heading .muted {
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--color-text-muted);
+  text-shadow: none;
 }
 
 
@@ -115,7 +121,7 @@
 .about-copy p {
   margin: 0 0 25px;
 
-  color: rgba(255, 255, 255, 0.63);
+  color: var(--color-text-secondary);
 
   font-size: 17px;
 
@@ -145,11 +151,11 @@
   gap: 42px;
 
   border:
-    1px solid rgba(255, 255, 255, 0.55);
+    1px solid var(--color-border-focus);
 
   border-radius: 100px;
 
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-strong);
 
   font-size: 14px;
 
@@ -158,14 +164,17 @@
   transition:
     background 0.3s ease,
     color 0.3s ease,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 
 .contact-button:hover {
-  background: #f5f5f5;
+  background: var(--color-button-primary-bg);
 
-  color: #080808;
+  border-color: var(--color-button-primary-bg);
+
+  color: var(--color-button-primary-text);
 
   transform: translateY(-2px);
 }
@@ -202,7 +211,8 @@
 .about-stats {
   display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns:
+    repeat(2, 1fr);
 }
 
 
@@ -216,12 +226,12 @@
   justify-content: center;
 
   border-left:
-    1px solid rgba(255, 255, 255, 0.14);
+    1px solid var(--color-border);
 }
 
 
 .stat strong {
-  color: #f5f5f5;
+  color: var(--color-text);
 
   font-size: clamp(64px, 6vw, 92px);
   font-weight: 400;
@@ -235,7 +245,7 @@
 .stat span {
   margin-top: 20px;
 
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--color-text-secondary);
 
   font-size: 14px;
   font-weight: 500;
@@ -269,15 +279,15 @@
   flex-direction: column;
 
   border:
-    1px solid rgba(255, 255, 255, 0.12);
+    1px solid var(--color-border);
 
   border-radius: 14px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.024),
-      rgba(255, 255, 255, 0.006)
+      var(--color-surface-soft),
+      var(--color-surface)
     );
 
   transition:
@@ -291,10 +301,10 @@
   transform: translateY(-4px);
 
   border-color:
-    rgba(255, 255, 255, 0.27);
+    var(--color-border-strong);
 
   background:
-    rgba(255, 255, 255, 0.025);
+    var(--color-surface-soft);
 }
 
 
@@ -313,12 +323,12 @@
   justify-content: center;
 
   border:
-    1px solid rgba(255, 255, 255, 0.14);
+    1px solid var(--color-border);
 
   border-radius: 50%;
 
   background:
-    rgba(255, 255, 255, 0.025);
+    var(--color-surface-soft);
 }
 
 
@@ -328,7 +338,7 @@
 
   fill: none;
 
-  stroke: rgba(255, 255, 255, 0.85);
+  stroke: var(--color-text-strong);
 
   stroke-width: 1.4;
 
@@ -349,7 +359,7 @@
 .card-content h3 {
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--color-text-strong);
 
   font-size: 17px;
   font-weight: 500;
@@ -361,7 +371,7 @@
 
   max-width: 250px;
 
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-soft);
 
   font-size: 14px;
 
@@ -374,11 +384,6 @@
 ======================================== */
 
 @media (max-width: 1100px) {
-
-  .about {
-    padding: 110px 0;
-  }
-
 
   .about-container {
     grid-template-columns:
@@ -407,11 +412,6 @@
 ======================================== */
 
 @media (max-width: 850px) {
-
-  .about {
-    padding: 90px 0;
-  }
-
 
   .about-container {
     grid-template-columns: 1fr;
@@ -462,8 +462,8 @@
 
 @media (max-width: 600px) {
 
-  .about {
-    padding: 75px 0;
+  .about-container {
+    gap: 60px;
   }
 
 
@@ -480,7 +480,8 @@
 
 
   .about-stats {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
 
@@ -534,7 +535,7 @@
     border-left: none;
 
     border-bottom:
-      1px solid rgba(255, 255, 255, 0.12);
+      1px solid var(--color-border);
   }
 
 }
