@@ -157,16 +157,22 @@
 
 
 a.contact-item {
-  transition: opacity 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 
 a.contact-item:hover {
-  opacity: 0.7;
+  opacity: 0.8;
+
+  transform: translateX(2px);
 }
 
 
-/* ICON */
+/* ========================================
+   CONTACT ICON
+======================================== */
 
 .contact-icon {
   width: 54px;
@@ -179,9 +185,12 @@ a.contact-item:hover {
   justify-content: center;
 
   border:
-    1px solid rgba(255, 255, 255, 0.35);
+    1px solid rgba(255, 255, 255, 0.25);
 
   border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.01);
 }
 
 
@@ -191,7 +200,7 @@ a.contact-item:hover {
 
   fill: none;
 
-  stroke: rgba(255, 255, 255, 0.88);
+  stroke: rgba(255, 255, 255, 0.82);
 
   stroke-width: 1.5;
 
@@ -201,12 +210,16 @@ a.contact-item:hover {
 
 
 .linkedin-icon {
+  color: rgba(255, 255, 255, 0.82);
+
   font-size: 20px;
   font-weight: 600;
 }
 
 
-/* CONTENT */
+/* ========================================
+   CONTACT CONTENT
+======================================== */
 
 .contact-item > div:last-child {
   display: flex;
@@ -394,7 +407,7 @@ a.contact-item:hover {
 
 
 /* ========================================
-   ERRORS
+   FIELD ERRORS
 ======================================== */
 
 .field-error {
@@ -442,11 +455,12 @@ a.contact-item:hover {
 
   transition:
     transform 0.3s ease,
-    background 0.3s ease;
+    background 0.3s ease,
+    opacity 0.3s ease;
 }
 
 
-.submit-button:hover {
+.submit-button:hover:not(:disabled) {
   background: #ffffff;
 
   transform: translateY(-2px);
@@ -460,8 +474,43 @@ a.contact-item:hover {
 }
 
 
-.submit-button:hover .button-arrow {
+.submit-button:hover:not(:disabled) .button-arrow {
   transform: translate(3px, -3px);
+}
+
+
+/* ========================================
+   FORM SUBMISSION STATUS
+======================================== */
+
+.form-success,
+.form-error {
+  margin: 16px 0 0;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+.form-success {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+
+.form-error {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+.submit-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
 }
 
 
@@ -477,6 +526,8 @@ a.contact-item:hover {
   color: rgba(255, 255, 255, 0.32);
 
   font-size: 11px;
+
+  line-height: 1.5;
 }
 
 
@@ -522,12 +573,16 @@ a.contact-item:hover {
 
   text-decoration: none;
 
-  transition: color 0.25s ease;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 
 .footer-links a:hover {
   color: #ffffff;
+
+  transform: translateY(-1px);
 }
 
 
@@ -536,11 +591,6 @@ a.contact-item:hover {
 ======================================== */
 
 @media (max-width: 1050px) {
-
-  .contact {
-    padding-top: 100px;
-  }
-
 
   .contact-layout {
     grid-template-columns:
@@ -564,11 +614,6 @@ a.contact-item:hover {
 
 @media (max-width: 850px) {
 
-  .contact {
-    padding-top: 85px;
-  }
-
-
   .contact-layout {
     grid-template-columns: 1fr;
 
@@ -591,9 +636,9 @@ a.contact-item:hover {
 
 
   .portfolio-footer {
-    padding: 28px 0;
-
     min-height: auto;
+
+    padding: 28px 0;
   }
 
 }
@@ -605,6 +650,13 @@ a.contact-item:hover {
 
 @media (max-width: 600px) {
 
+  .contact-layout {
+    gap: 55px;
+
+    padding-bottom: 65px;
+  }
+
+
   .contact-intro h2 {
     font-size: 52px;
 
@@ -612,8 +664,24 @@ a.contact-item:hover {
   }
 
 
+  .contact-description {
+    margin-top: 32px;
+
+    font-size: 16px;
+  }
+
+
+  .contact-details {
+    gap: 24px;
+
+    margin-top: 38px;
+  }
+
+
   .form-row {
     grid-template-columns: 1fr;
+
+    gap: 0;
   }
 
 
@@ -622,8 +690,19 @@ a.contact-item:hover {
   }
 
 
+  .form-header h3 {
+    font-size: 26px;
+  }
+
+
   .contact-item {
     align-items: flex-start;
+  }
+
+
+  .contact-icon {
+    width: 48px;
+    height: 48px;
   }
 
 
@@ -638,6 +717,35 @@ a.contact-item:hover {
     flex-direction: column;
 
     align-items: flex-start;
+
+    gap: 18px;
+  }
+
+}
+
+
+/* ========================================
+   VERY SMALL MOBILE
+======================================== */
+
+@media (max-width: 420px) {
+
+  .contact-intro h2 {
+    font-size: 46px;
+
+    line-height: 0.98;
+  }
+
+
+  .contact-form-wrapper {
+    padding: 22px 16px;
+  }
+
+
+  .footer-links {
+    flex-wrap: wrap;
+
+    gap: 18px;
   }
 
 }

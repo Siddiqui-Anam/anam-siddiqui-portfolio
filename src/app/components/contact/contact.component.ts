@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  signal
+} from '@angular/core';
+
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
+
 
 @Component({
   selector: 'app-contact',
@@ -17,52 +22,107 @@ export class ContactComponent {
 
   currentYear = new Date().getFullYear();
 
+  isSending = signal(false);
+  messageSent = signal(false);
+  sendError = signal(false);
+
   contactForm: FormGroup;
+
 
   constructor(private fb: FormBuilder) {
 
     this.contactForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
-      message: ['', Validators.required]
+
+      name: [
+        '',
+        Validators.required
+      ],
+
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email
+        ]
+      ],
+
+      subject: [
+        '',
+        Validators.required
+      ],
+
+      message: [
+        '',
+        Validators.required
+      ]
+
     });
 
   }
 
 
-  sendMessage(): void {
+  async sendMessage(): Promise<void> {
 
     if (this.contactForm.invalid) {
+
       this.contactForm.markAllAsTouched();
+
       return;
     }
 
-    const {
-      name,
-      email,
-      subject,
-      message
-    } = this.contactForm.value;
+
+    this.isSending.set(true);
+
+    this.messageSent.set(false);
+
+    this.sendError.set(false);
 
 
-    const emailBody =
-      `Hi Anam,
+    try {
 
-My name is ${name}.
+      const response = await fetch(
+        'https://formspree.io/f/mppwyodp',
+        {
+          method: 'POST',
 
-${message}
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
 
-You can reach me at:
-${email}`;
+          body: JSON.stringify(
+            this.contactForm.value
+          )
+        }
+      );
 
 
-    const mailto =
-      `mailto:anam.siddiqui.work@gmail.com` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(emailBody)}`;
+      if (!response.ok) {
+        throw new Error('Message could not be sent');
+      }
 
 
-    window.location.href = mailto;
+      this.messageSent.set(true);
+
+      this.contactForm.reset();
+
+    }
+    catch (error) {
+
+      console.error(
+        'Contact form error:',
+        error
+      );
+
+      this.sendError.set(true);
+
+    }
+    finally {
+
+      this.isSending.set(false);
+
+    }
+
   }
+
 }

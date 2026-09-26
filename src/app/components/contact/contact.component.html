@@ -44,24 +44,12 @@
 
           <!-- EMAIL -->
 
-          <a
-            href="mailto:anam.siddiqui.work&#64;gmail.com"
-            class="contact-item"
-          >
+          <a href="mailto:anam.siddiqui.work&#64;gmail.com" class="contact-item">
 
             <div class="contact-icon">
 
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <rect
-                  x="3"
-                  y="5"
-                  width="18"
-                  height="14"
-                  rx="2"
-                />
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
 
                 <path d="m3 7 9 6 9-6" />
 
@@ -91,22 +79,13 @@
 
             <div class="contact-icon">
 
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
 
-                <path
-                  d="M12 21s7-5.1 7-12
+                <path d="M12 21s7-5.1 7-12
                   a7 7 0 1 0-14 0
-                  c0 6.9 7 12 7 12Z"
-                />
+                  c0 6.9 7 12 7 12Z" />
 
-                <circle
-                  cx="12"
-                  cy="9"
-                  r="2.3"
-                />
+                <circle cx="12" cy="9" r="2.3" />
 
               </svg>
 
@@ -134,12 +113,8 @@
 
           <!-- LINKEDIN -->
 
-          <a
-            href="https://linkedin.com/in/siddiqui-anam"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-item"
-          >
+          <a href="https://linkedin.com/in/siddiqui-anam" target="_blank" rel="noopener noreferrer"
+            class="contact-item">
 
             <div class="contact-icon linkedin-icon">
               in
@@ -185,11 +160,7 @@
         </div>
 
 
-        <form
-          [formGroup]="contactForm"
-          (ngSubmit)="sendMessage()"
-          class="contact-form"
-        >
+        <form [formGroup]="contactForm" (ngSubmit)="sendMessage()" class="contact-form">
 
 
           <div class="form-row">
@@ -203,21 +174,16 @@
                 Name
               </label>
 
-              <input
-                id="name"
-                type="text"
-                formControlName="name"
-                placeholder="Your name"
-              />
+              <input id="name" type="text" formControlName="name" placeholder="Your name" />
 
               @if (
-                contactForm.get('name')?.touched &&
-                contactForm.get('name')?.invalid
+              contactForm.get('name')?.touched &&
+              contactForm.get('name')?.invalid
               ) {
 
-                <span class="field-error">
-                  Please enter your name.
-                </span>
+              <span class="field-error">
+                Please enter your name.
+              </span>
 
               }
 
@@ -232,21 +198,16 @@
                 Email
               </label>
 
-              <input
-                id="email"
-                type="email"
-                formControlName="email"
-                placeholder="you@example.com"
-              />
+              <input id="email" type="email" formControlName="email" placeholder="you@example.com" />
 
               @if (
-                contactForm.get('email')?.touched &&
-                contactForm.get('email')?.invalid
+              contactForm.get('email')?.touched &&
+              contactForm.get('email')?.invalid
               ) {
 
-                <span class="field-error">
-                  Please enter a valid email.
-                </span>
+              <span class="field-error">
+                Please enter a valid email.
+              </span>
 
               }
 
@@ -264,21 +225,16 @@
               Subject
             </label>
 
-            <input
-              id="subject"
-              type="text"
-              formControlName="subject"
-              placeholder="What's this about?"
-            />
+            <input id="subject" type="text" formControlName="subject" placeholder="What's this about?" />
 
             @if (
-              contactForm.get('subject')?.touched &&
-              contactForm.get('subject')?.invalid
+            contactForm.get('subject')?.touched &&
+            contactForm.get('subject')?.invalid
             ) {
 
-              <span class="field-error">
-                Please enter a subject.
-              </span>
+            <span class="field-error">
+              Please enter a subject.
+            </span>
 
             }
 
@@ -294,21 +250,17 @@
               Message
             </label>
 
-            <textarea
-              id="message"
-              formControlName="message"
-              rows="7"
-              placeholder="Tell me about your project..."
-            ></textarea>
+            <textarea id="message" formControlName="message" rows="7"
+              placeholder="Tell me about your project..."></textarea>
 
             @if (
-              contactForm.get('message')?.touched &&
-              contactForm.get('message')?.invalid
+            contactForm.get('message')?.touched &&
+            contactForm.get('message')?.invalid
             ) {
 
-              <span class="field-error">
-                Please enter your message.
-              </span>
+            <span class="field-error">
+              Please enter your message.
+            </span>
 
             }
 
@@ -318,10 +270,15 @@
 
           <!-- BUTTON -->
 
-          <button
-            type="submit"
-            class="submit-button"
-          >
+          <button type="submit" class="submit-button" [disabled]="isSending()">
+
+            @if (isSending()) {
+
+            <span>
+              Sending...
+            </span>
+
+            } @else {
 
             <span>
               Send Message
@@ -331,14 +288,32 @@
               ↗
             </span>
 
+            }
+
           </button>
 
 
-          <p class="privacy-note">
+          @if (messageSent()) {
 
+          <p class="form-success">
+            Message sent successfully. I'll get back to you soon.
+          </p>
+
+          }
+
+
+          @if (sendError()) {
+
+          <p class="form-error">
+            Something went wrong. Please try again or email me directly.
+          </p>
+
+          }
+
+
+          <p class="privacy-note">
             Your information will only be used
             to respond to your message.
-
           </p>
 
         </form>
@@ -363,25 +338,15 @@
 
       <div class="footer-links">
 
-        <a
-          href="https://linkedin.com/in/siddiqui-anam"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://linkedin.com/in/siddiqui-anam" target="_blank" rel="noopener noreferrer">
           LinkedIn
         </a>
 
-        <a
-          href="https://github.com/Siddiqui-Anam"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://github.com/Siddiqui-Anam" target="_blank" rel="noopener noreferrer">
           GitHub
         </a>
 
-        <a
-          href="mailto:anam.siddiqui.work&#64;gmail.com"
-        >
+        <a href="mailto:anam.siddiqui.work&#64;gmail.com">
           Email
         </a>
 
