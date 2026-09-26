@@ -1,0 +1,181 @@
+<section class="about" id="about">
+
+  <div class="about-container">
+
+    <!-- LEFT SIDE -->
+    <div class="about-content">
+
+      <div class="section-label">
+        <span>ABOUT ME</span>
+        <span class="label-line"></span>
+      </div>
+
+      <h2 class="about-heading">
+        <span>Engineer.</span>
+        <span>Learner.</span>
+        <span>Designer.</span>
+        <span class="muted">Writer.</span>
+      </h2>
+
+
+      <div class="about-copy">
+
+        <p>
+          I’m a software engineer with 4+ years of experience
+          building scalable backend systems and full-stack
+          applications across banking and fintech.
+        </p>
+
+        <p>
+          I enjoy learning new technologies, understanding how
+          systems work, and designing products that are both
+          functional and thoughtfully built.
+        </p>
+
+        <p>
+          Outside of software, I’m a reader and fiction writer on
+          Wattpad. Writing gives me another creative outlet and
+          influences the way I think about ideas, structure and
+          experiences.
+        </p>
+
+      </div>
+
+
+      <a href="#contact" class="contact-button">
+
+        <span>Get in touch</span>
+        <span class="arrow">↗</span>
+
+      </a>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+    <div class="about-details">
+
+      <!-- STATS -->
+      <div class="about-stats">
+
+        <div class="stat">
+
+          <strong>
+            4+
+          </strong>
+
+          <span>
+            YEARS<br>
+            EXPERIENCE
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>
+            5+
+          </strong>
+
+          <span>
+            MAJOR<br>
+            PROJECTS
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- CARDS -->
+      <div class="about-cards">
+
+        @for (card of cards; track card.title) {
+
+          <article class="about-card">
+
+            <div class="card-icon">
+
+              @switch (card.icon) {
+
+                @case ('code') {
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 9 4 12l4 3" />
+                    <path d="m16 9 4 3-4 3" />
+                    <path d="m14 5-4 14" />
+                  </svg>
+
+                }
+
+
+                @case ('learn') {
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="m3 10 9-5 9 5-9 5-9-5Z" />
+                    <path d="M7 12v5c3 2 7 2 10 0v-5" />
+                  </svg>
+
+                }
+
+
+                @case ('design') {
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="m4 20 4.5-1 10-10a2 2 0 0 0-3-3l-10 10L4 20Z" />
+                    <path d="m14.5 7.5 3 3" />
+                  </svg>
+
+                }
+
+
+                @case ('book') {
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M3 5.5A3.5 3.5 0 0 1 6.5 2H11v17H6.5A3.5 3.5 0 0 0 3 22V5.5Z" />
+                    <path d="M21 5.5A3.5 3.5 0 0 0 17.5 2H13v17h4.5A3.5 3.5 0 0 1 21 22V5.5Z" />
+                  </svg>
+
+                }
+
+              }
+
+            </div>
+
+
+            <div class="card-content">
+
+              <h3>
+                {{ card.title }}
+              </h3>
+
+              <p>
+                {{ card.description }}
+              </p>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
