@@ -4,11 +4,12 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { AboutComponent } from './components/about/about.component';
+import { ServicesComponent } from './components/services/services.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, HeroComponent, ExperienceComponent, ProjectsComponent, AboutComponent],
+  imports: [NavbarComponent, HeroComponent, ExperienceComponent, ProjectsComponent, AboutComponent, ServicesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
