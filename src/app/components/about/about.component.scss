@@ -8,14 +8,15 @@
 ======================================== */
 
 .about {
-  position: relative;
-
   background: #080808;
   color: #f5f5f5;
 
-  padding: 130px 0 140px;
+  padding:
+    var(--section-space-top)
+    0
+    var(--section-space-bottom);
 
-  scroll-margin-top: 88px;
+  scroll-margin-top: var(--navbar-height);
 }
 
 

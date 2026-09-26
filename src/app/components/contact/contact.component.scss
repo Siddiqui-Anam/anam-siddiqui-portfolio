@@ -13,9 +13,12 @@
   background: #080808;
   color: #f5f5f5;
 
-  padding: 125px 0 0;
+  padding:
+    var(--section-space-top)
+    0
+    0;
 
-  scroll-margin-top: 88px;
+  scroll-margin-top: var(--navbar-height);
 }
 
 

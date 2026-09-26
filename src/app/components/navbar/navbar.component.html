@@ -3,30 +3,31 @@
   <div class="navbar-container">
 
     <!-- Logo -->
-    <a class="logo" href="#home">
-        <img src="/images/AnamSiddiquiLogo.png" alt="Anam Siddiqui" />
+    <a class="logo" href="#home" (click)="setActive('home')">
+      <img src="/images/AnamSiddiquiLogo.png" alt="Anam Siddiqui" />
     </a>
 
     <!-- Desktop Navigation -->
     <div class="nav-links">
 
-      <a href="#work">
+      <a href="#work" [class.active]="activeSection() === 'work'" (click)="setActive('work')">
         Work
       </a>
 
-      <a href="#services">
+      <a href="#services" [class.active]="activeSection() === 'services'" (click)="setActive('services')">
         Services
       </a>
 
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#experience">
+      <a href="#experience" [class.active]="activeSection() === 'experience'" (click)="setActive('experience')">
         Experience
       </a>
 
-      <a href="#contact" class="contact-link">
+      <a href="#about" [class.active]="activeSection() === 'about'" (click)="setActive('about')">
+        About
+      </a>
+
+      <a href="#contact" class="contact-link" [class.active]="activeSection() === 'contact'"
+        (click)="setActive('contact')">
         Contact
       </a>
 
@@ -34,12 +35,7 @@
 
 
     <!-- Mobile Button -->
-    <button
-      class="menu-button"
-      type="button"
-      aria-label="Toggle navigation"
-      (click)="toggleMenu()"
-    >
+    <button class="menu-button" type="button" aria-label="Toggle navigation" (click)="toggleMenu()">
       <span></span>
       <span></span>
     </button>
@@ -50,29 +46,29 @@
   <!-- Mobile Menu -->
   @if (menuOpen()) {
 
-    <div class="mobile-menu">
+  <div class="mobile-menu">
 
-      <a href="#work" (click)="closeMenu()">
-        Work
-      </a>
+    <a href="#work" [class.active]="activeSection() === 'work'" (click)="setActive('work')">
+      Work
+    </a>
 
-      <a href="#services" (click)="closeMenu()">
-        Services
-      </a>
+    <a href="#services" [class.active]="activeSection() === 'services'" (click)="setActive('services')">
+      Services
+    </a>
 
-      <a href="#about" (click)="closeMenu()">
-        About
-      </a>
+    <a href="#experience" [class.active]="activeSection() === 'experience'" (click)="setActive('experience')">
+      Experience
+    </a>
 
-      <a href="#experience" (click)="closeMenu()">
-        Experience
-      </a>
+    <a href="#about" [class.active]="activeSection() === 'about'" (click)="setActive('about')">
+      About
+    </a>
 
-      <a href="#contact" (click)="closeMenu()">
-        Contact
-      </a>
+    <a href="#contact" [class.active]="activeSection() === 'contact'" (click)="setActive('contact')">
+      Contact
+    </a>
 
-    </div>
+  </div>
 
   }
 

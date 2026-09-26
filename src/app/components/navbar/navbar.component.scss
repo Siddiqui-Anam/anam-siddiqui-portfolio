@@ -110,6 +110,18 @@
   width: 100%;
 }
 
+/* ========================================
+   ACTIVE NAV ITEM
+======================================== */
+
+.nav-links a.active {
+  color: #ffffff;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
 
 /* -------------------------
    CONTACT
@@ -137,6 +149,16 @@
   color: #080808 !important;
 }
 
+.contact-link.active {
+  background: #f5f5f5;
+  border-color: #f5f5f5;
+
+  color: #080808 !important;
+}
+
+.contact-link.active::after {
+  display: none;
+}
 
 /* -------------------------
    MOBILE BUTTON
@@ -176,6 +198,22 @@
   display: none;
 }
 
+.mobile-menu a.active {
+  color: #ffffff;
+}
+
+.mobile-menu a.active::after {
+  content: "";
+
+  display: block;
+
+  width: 28px;
+  height: 1px;
+
+  margin-top: 8px;
+
+  background: #ffffff;
+}
 
 /* -------------------------
    RESPONSIVE
